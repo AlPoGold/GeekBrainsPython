@@ -5,12 +5,12 @@
 # 123 -> 6 (1 + 2 + 3)
 # 100 -> 1 (1 + 0 + 0) |
 
-number = int(input('Please, enter your number: '))
-total=0
-while number!=0:
-    total+=number%10
-    number//=10
-print(f'The sum of digits equals {total}')
+# number = int(input('Please, enter your number: '))
+# total=0
+# while number!=0:
+#     total+=number%10
+#     number//=10
+# print(f'The sum of digits equals {total}')
 #
 # Задача 4: Петя, Катя и Сережа делают из бумаги журавликов.
 # Вместе они сделали S журавликов. Сколько журавликов сделал каждый ребенок, если известно,
@@ -22,6 +22,18 @@ print(f'The sum of digits equals {total}')
 # 6 -> 1  4  1
 # 24 -> 4  16  4
 #     60 -> 10  40  10
+
+total_cranes = int(input("Please, enter total number of childrens' cranes: "))
+petya = 0
+sergey = 0
+katya = 0
+residue='s'
+for i in range(1, total_cranes+1):
+    petya=sergey=i
+    katya=(i+i)*2
+    if petya+sergey+katya==total_cranes:
+        print(f'Katya has made {katya} cranes', f'Sergey has made {sergey} cranes', f'Petya has made {petya} cranes', sep='\n')
+        break
 #
 # Задача 6: Вы пользуетесь общественным транспортом? Вероятно, вы расплачивались за проезд и получали билет с номером.
 # Счастливым билетом называют такой билет с шестизначным номером, где сумма первых трех цифр равна сумме последних трех.
