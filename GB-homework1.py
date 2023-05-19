@@ -22,18 +22,18 @@
 # 6 -> 1  4  1
 # 24 -> 4  16  4
 #     60 -> 10  40  10
-
-total_cranes = int(input("Please, enter total number of childrens' cranes: "))
-petya = 0
-sergey = 0
-katya = 0
-residue='s'
-for i in range(1, total_cranes+1):
-    petya=sergey=i
-    katya=(i+i)*2
-    if petya+sergey+katya==total_cranes:
-        print(f'Katya has made {katya} cranes', f'Sergey has made {sergey} cranes', f'Petya has made {petya} cranes', sep='\n')
-        break
+#
+# total_cranes = int(input("Please, enter total number of childrens' cranes: "))
+# petya = 0
+# sergey = 0
+# katya = 0
+# residue='s'
+# for i in range(1, total_cranes+1):
+#     petya=sergey=i
+#     katya=(i+i)*2
+#     if petya+sergey+katya==total_cranes:
+#         print(f'Katya has made {katya} cranes', f'Sergey has made {sergey} cranes', f'Petya has made {petya} cranes', sep='\n')
+#         break
 #
 # Задача 6: Вы пользуетесь общественным транспортом? Вероятно, вы расплачивались за проезд и получали билет с номером.
 # Счастливым билетом называют такой билет с шестизначным номером, где сумма первых трех цифр равна сумме последних трех.
@@ -44,6 +44,16 @@ for i in range(1, total_cranes+1):
 #
 # 385916 -> yes
 # 123456 -> no
+ticket = input('Please, enter number of your ticket in format XXXXXX\nand i will tell you is it lucky or not: ')
+while (len(ticket)!=6 or not ticket.isdigit()):
+    print('Wrong format. Reenter!')
+    ticket = input('Please, enter number of your ticket in format XXXXXX: ')
+part1 = sum([int(i) for i in ticket[:3]])
+part2 = sum([int(i) for i in ticket[3:]])
+if part1==part2:
+    print('YES, you are lucky=)')
+else:
+    print('NO, sorry')
 #
 # Задача 8: Требуется определить, можно ли от шоколадки размером n × m долек отломить k долек,
 # если разрешается сделать один разлом по прямой между дольками (то есть разломить шоколадку на два прямоугольника).
