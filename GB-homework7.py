@@ -11,9 +11,17 @@
 # **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да
 # **Вывод:** Парам пам-пам
 #
-song = 'пара-ра-рам рам-пам-папам па-ра-па-да' #input()
 
-
+song = input().lower()
+phrases = song.split()
+vowels = ['а', 'я', 'у', 'ю', 'о', 'е', 'ё', 'э', 'и', 'ы']
+# берем список фраз, каждую фразу обрабатываем: оставляем только гласные буквы и в каждой фразе считаем сколько гласных букв
+count_vowels = list(map(lambda x: len(list(filter(lambda y: True if y in vowels else False, x))), phrases))
+#далее смотрим, равны ли все количества гласных во фразах
+if len(set(count_vowels))==1:
+    print('Парам пам-пам')
+else:
+    print('Пам парам')
 # Задача 36: Напишите функцию print_operation_table(operation, num_rows=6, num_columns=6),
 # которая принимает в качестве аргумента функцию, вычисляющую элемент по номеру строки и столбца.
 # Аргументы num_rows и num_columns указывают число строк и столбцов таблицы, которые должны быть распечатаны.
@@ -32,16 +40,16 @@ song = 'пара-ра-рам рам-пам-папам па-ра-па-да' #inpu
 # 4 8 12 16 20 24
 # 5 10 15 20 25 30
 # 6 12 18 24 30 36
-
-def print_operation_table(operation, num_rows=6, num_columns=6):
-    matrix = [[i for i in range(1, num_columns+1)] for _ in range(num_rows)]
-
-    for i in range(num_columns):
-        matrix[i][0] = i+1
-
-    for i in range(1, num_rows):
-        for j in range(1, num_columns):
-            matrix[i][j] = operation(matrix[0][j], matrix[i][0])
-    print(*[' '.join(list(map(str,m))) for m in matrix], sep='\n')
-
-print_operation_table(lambda x, y: x * y)
+#
+# def print_operation_table(operation, num_rows=6, num_columns=6):
+#     matrix = [[i for i in range(1, num_columns+1)] for _ in range(num_rows)]
+#
+#     for i in range(num_columns):
+#         matrix[i][0] = i+1
+#
+#     for i in range(1, num_rows):
+#         for j in range(1, num_columns):
+#             matrix[i][j] = operation(matrix[0][j], matrix[i][0])
+#     print(*[' '.join(list(map(str,m))) for m in matrix], sep='\n')
+#
+# print_operation_table(lambda x, y: x * y)
