@@ -16,7 +16,7 @@ song = input().lower()
 phrases = song.split()
 vowels = ['а', 'я', 'у', 'ю', 'о', 'е', 'ё', 'э', 'и', 'ы']
 # берем список фраз, каждую фразу обрабатываем: оставляем только гласные буквы и в каждой фразе считаем сколько гласных букв
-count_vowels = list(map(lambda x: len(list(filter(lambda y: True if y in vowels else False, x))), phrases))
+count_vowels = list(map(lambda x: len(list(filter(lambda y: y in vowels, x))), phrases))
 #далее смотрим, равны ли все количества гласных во фразах
 if len(set(count_vowels))==1:
     print('Парам пам-пам')
